@@ -18,7 +18,6 @@ bundle install
 rake db:migrate
 ```
 - Sign Up by replacing "sign_in" to "sign_up" from address bar and add all informations.
-```
 
 ### Contact me 
 Facebook: facebook.com/inzamul36 <br>
