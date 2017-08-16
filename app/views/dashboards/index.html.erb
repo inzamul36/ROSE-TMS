@@ -1,0 +1,167 @@
+				
+                <% content_for :title, "Dashboard" %>
+
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+				
+				<!-- Page Header -->
+                <div class="content bg-image overflow-hidden" style="background-image: url('<%= asset_path('dashboard.jpg') %>');">
+                    <div class="push-50-t push-15">
+                        <h1 class="h2 text-white animated zoomIn">Dashboard</h1>
+                        <h2 class="h5 text-white-op animated zoomIn">Welcome Administrator</h2>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Stats -->
+                <div class="content bg-white border-b">
+                    <div class="row items-push text-uppercase">
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="font-w700 text-gray-darker animated fadeIn">Order Ready</div>
+                            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> Total</small></div>
+                            <a class="h2 font-w300 text-primary animated flipInX" href=""><%= @order_ready %></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="font-w700 text-gray-darker animated fadeIn">Order Confirm</div>
+                            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> Total</small></div>
+                            <a class="h2 font-w300 text-primary animated flipInX" href=""><%= @order_confirm %></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="font-w700 text-gray-darker animated fadeIn">Order Due</div>
+                            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> Total</small></div>
+                            <a class="h2 font-w300 text-primary animated flipInX" href="">$ <%= @order_due %></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="font-w700 text-gray-darker animated fadeIn">Staffs</div>
+                            <div class="text-muted animated fadeIn"><small><i class="si si-users"></i> Total</small></div>
+                            <a class="h2 font-w300 text-primary animated flipInX" href=""><%= @staffs %></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Stats -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Main Dashboard Chart -->
+                            <div class="block">
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Order Chart</h3>
+                                </div>
+                                <div class="block-content block-content-full">
+                                	<canvas id="myChart" width="50%"></canvas>
+                                	<script>
+										new Chart(document.getElementById("myChart"), {
+										    type: 'pie',
+										    data: {
+										      	labels: ["Confirm", " Processing", "Ready", "Delivered"],
+										      	datasets: [{
+										        	label: "Population (millions)",
+										        	backgroundColor: ["#70b9eb", "#f3b760","#46c37b","#f5707a"],
+										        	data: [<%= @order_confirm %>, <%= @order_processing %>, <%= @order_ready %>, <%= @order_delivered %>]
+										      	}]
+										    },
+										    options: {
+										      	title: {
+										        	display: false,
+										        	text: 'Order Chart'
+										      	}
+										    }
+										});
+									</script>
+                                </div>
+                            </div> 		                            
+                        </div>    
+                        <!-- END Main Dashboard Table -->
+
+                        <div class="col-md-6">
+                        	<a class="block block-link-hover3" href="javascript:void(0)">
+								<table class="block-table text-center">
+									<tbody>
+										<tr>
+											<td style="width: 50%;">
+												<div class="push-30 push-30-t">
+													<i class="si si-users fa-3x text-primary-dark"></i>
+												</div>
+											</td>
+											<td class="bg-gray-lighter" style="width: 50%;">
+												<div class="h1 font-w700"><span class="h2 text-muted">+<%= @customers %></span> </div>
+												<div class="h5 text-muted text-uppercase push-5-t"> Customers</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</a>
+						</div>	
+
+                        <div class="col-md-3 text-uppercase">
+                            <div class="block block-rounded">
+                                <div class="block-content block-content-full">
+                                    <div class="text-muted">
+                                        <small><i class="si si-calendar"></i> Current Month</small>
+                                    </div>
+                                    <div class="font-s12 font-w700">Order</div>
+                                    <a class="h2 font-w300 text-info" href="base_comp_charts.html" data-toggle="countTo" data-to="480950"><%= @order_month %></a>
+                                    <i class="fa fa-cart-plus fa-3x pull-right text-info"></i>
+                                </div>
+                            </div>
+                            <div class="block block-rounded">
+                                <div class="block-content block-content-full">
+                                    <div class="text-muted">
+                                        <small><i class="si si-calendar"></i> Current Month</small>
+                                    </div>
+                                    <div class="font-s12 font-w700">Ready</div>
+                                    <a class="h2 font-w300 text-warning" href="base_comp_charts.html" data-toggle="countTo" data-to="480950"><%= @order_month_ready %></a>
+                                    <i class="fa fa-cart-arrow-down fa-3x pull-right text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="block block-rounded">
+                                <div class="block-content block-content-full">
+                                    <div class="text-muted">
+                                        <small><i class="si si-calendar"></i> Current Month</small>
+                                    </div>
+                                    <div class="font-s12 font-w700">Delivered</div>
+                                    <a class="h2 font-w300 text-success" href="base_comp_charts.html" data-toggle="countTo" data-to="480950"><%= @order_month_delivery %></a>
+                                    <i class="fa fa-shopping-cart fa-3x pull-right text-success"></i>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="col-md-3 text-uppercase">    
+                            <div class="block block-rounded">
+                                <div class="block-content block-content-full">
+                                    <div class="text-muted">
+                                        <small><i class="si si-calendar"></i> Current Month</small>
+                                    </div>
+                                    <div class="font-s12 font-w700">Amount</div>
+                                    <a class="h2 font-w300 text-info" href="base_comp_charts.html" data-toggle="countTo" data-to="480950">$ <%= @order_month_total %></a>
+                                    <i class="fa fa-usd fa-3x pull-right text-info"></i>
+                                </div>
+                            </div>
+                            <div class="block block-rounded">
+                                <div class="block-content block-content-full">
+                                    <div class="text-muted">
+                                        <small><i class="si si-calendar"></i> Current Month</small>
+                                    </div>
+                                    <div class="font-s12 font-w700">Paid</div>
+                                    <a class="h2 font-w300 text-success" href="base_comp_charts.html" data-toggle="countTo" data-to="480950">$ <%= @order_month_paid %></a>
+                                    <i class="fa fa-usd fa-3x pull-right text-success"></i>
+                                </div>
+                            </div>
+                            <div class="block block-rounded">
+                                <div class="block-content block-content-full">
+                                    <div class="text-muted">
+                                        <small><i class="si si-calendar"></i> Current Month</small>
+                                    </div>
+                                    <div class="font-s12 font-w700">Due</div>
+                                    <a class="h2 font-w300 text-warning" href="base_comp_charts.html" data-toggle="countTo" data-to="480950">$ <%= @order_month_due %></a>
+                                    <i class="fa fa-usd fa-3x pull-right text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    

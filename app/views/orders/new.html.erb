@@ -1,0 +1,114 @@
+
+                <% content_for :title, "Add Order" %>
+
+
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Add Order <small>Add New Order Data.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Dashbord</li>
+                                <li><a class="link-effect" href="">Add Order</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">                    
+                            <div class="block">
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Order Form <small>Requierd</small></h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <%= form_for @order, :html=>{:class=>'form-horizontal push-10-t'} do|f| %>
+                                                <div class="form-group">
+                                                    <label class="col-xs-12" for="example-password-input">Customer Name</label>
+                                                    <div class="col-sm-12">
+                                                        <% options = options_from_collection_for_select(@customer, 'id', 'customer_name') %>
+                                                        <%= f.select :customer_id, options, {:include_blank => false}, {:class=>'form-control select_list', :style=>"width:100%"} %>
+                                                    </div>
+                                                </div>                                          
+                                                <div class="form-group">
+                                                    <label class="col-xs-12" for="example-password-input">Staff Name</label>
+                                                    <div class="col-sm-12"> 
+                                                        <% options = options_from_collection_for_select(@staff, 'id', 'staff_name') %>
+                                                        <%= f.select :staff_id, options, {:include_blank => false}, {:class=>'form-control select_list', :style=>"width:100%"}  %>
+                                                    </div>
+                                                </div>  
+                                                <div class="form-group">
+                                                    <label class="col-xs-12" for="example-password-input">Delivery Date</label>
+                                                    <div class="col-sm-12">                                            
+                                                        <%= f.text_field :delivery_date, :class=>'form-control', :type=>"date", :required=>''  %>
+                                                    </div>
+                                                </div> 
+                                                <div class="row">
+                                                    <div class="col-md-6">                                                           
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Amount</label>
+                                                            <div class="col-sm-12">                                            
+                                                                    <%= f.text_field :order_amount, :class=>'form-control', :placeholder=>"Enter Total Amount", :type=>'number', :required=>''  %>
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                    <div class="col-md-6">                                                
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Paid</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :order_paid, :class=>'form-control', :placeholder=>"Enter Paid Amount", :type=>'number', :required=>''  %>
+                                                            </div>
+                                                        </div>                                                        
+                                                    </div> 
+                                                </div>   
+                                                <div class="form-group">
+                                                    <label class="col-xs-12" for="example-password-input">Order Details</label>
+                                                    <div class="col-sm-12">                                            
+                                                        <%= f.text_area :order_details, :class=>'form-control', :placeholder=>"Enter Order Details", :rows=>'2', :required=>''  %>
+                                                    </div>
+                                                </div>                         
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <div class="form-material">   
+                                                            <label>Status</label>                                     
+                                                            <div class="col-xs-12">
+                                                                <div class="row">
+                                                                    <div class="col-md-3"><label class="css-input css-radio css-radio-default"><%= f.radio_button :order_status, 'Confirm', :class=>'icheckbox_square-green' %><span></span> Confirm </label></div>
+                                                                    <div class="col-md-3"><label class="css-input css-radio css-radio-warning"><%= f.radio_button :order_status, 'Processing', :class=>'icheckbox_square-green' %><span></span> Processing </label></div>
+                                                                    <div class="col-md-3"><label class="css-input css-radio css-radio-success"><%= f.radio_button :order_status, 'Ready', :class=>'icheckbox_square-green' %><span></span> Ready </label></div>
+                                                                    <div class="col-md-3"><label class="css-input css-radio css-radio-primary"><%= f.radio_button :order_status, 'Delivered', :class=>'icheckbox_square-green' %><span></span> Delivered </label></div>
+                                                                </div>   
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <%= f.submit :class=>'btn btn-sm btn-primary', :value=>'submit' %>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
+                    </div>        
+                </div>

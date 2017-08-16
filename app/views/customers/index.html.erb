@@ -1,0 +1,79 @@
+                
+                <% content_for :title, "Customers" %>
+
+
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Customer <small>All Customers Data.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Dashbord</li>
+                                <li><a class="link-effect" href="">Customer</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-header">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Customer <small>Records</small></h3>
+                        </div>
+                        <div class="block-content table-responsive">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-striped js-dataTable-full-pagination">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>sex</th>
+                                        <th>Address</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead> 
+                                <tbody>
+                                  <% @customers.each do |customers|  %>
+                                    <tr><td>C-<%= customers.id %></td>
+                                        <td><%= customers.customer_name %></td>
+                                        <td><%= customers.customer_phone %></td>
+                                        <td><%= customers.customer_email %></td>
+                                        <td><%= customers.customer_sex %></td>
+                                        <td><%= customers.customer_address %></td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <%= link_to customer_path(customers.id), :class=>'btn btn-xs btn-default' do %>
+                                                    <i class="fa fa-eye"></i>
+                                                <% end %>
+                                                <%= link_to edit_customer_path(customers.id), :class=>'btn btn-xs btn-default' do %>
+                                                    <i class="fa fa-pencil"></i>
+                                                <% end %>  
+                                            </div>  
+                                        </td>    
+                                    </tr>
+                                  <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+                </div>
+                <!-- END Page Content -->
+
+

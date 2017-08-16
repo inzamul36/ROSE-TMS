@@ -1,0 +1,29 @@
+
+                    <% content_for :title, "Sign In" %>
+
+
+                    <h3 class="font-size-24">Sign In</h3>
+                    
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div class="form-group">
+                            <div class="form-material floating">
+                                <%= f.email_field :email, autofocus: true, :class=>"form-control empty" %>
+                                <label class="floating-label" for="user_email">Email</label>
+                            </div>
+                        </div>   
+                        <div class="form-group"> 
+                            <div class="form-material floating">
+                                <%= f.password_field :password, autocomplete: "off", :class=>"form-control empty" %>
+                                <label class="floating-label" for="user_password">Password</label>
+                            </div>
+                        </div>   
+                        <div class="form-group clearfix">
+                            <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+                                <%= f.check_box :remember_me %>
+                                <label for="user_remember_me">Remember me</label>
+                            </div>
+                            <a class="pull-right" href="#" type="button" onclick="alert('Alert! Please contact with Developer.')">Forgot password?</a>
+                        </div>
+                        <%= f.submit "Sign in", :class=>"btn btn-primary btn-block" %>
+                    <% end %>
+

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: one
+  neck: MyString
+  chest: MyString
+  shoulder: MyString
+  waist: MyString
+  hips: MyString
+  sleeve: MyString
+  bicep: MyString
+  wrist: MyString
+  length: MyString
+  thigh: MyString
+  crotch: MyString
+  ankles: MyString
+  inseam: MyString
+  outseam: MyString
+
+two:
+  order_id: two
+  neck: MyString
+  chest: MyString
+  shoulder: MyString
+  waist: MyString
+  hips: MyString
+  sleeve: MyString
+  bicep: MyString
+  wrist: MyString
+  length: MyString
+  thigh: MyString
+  crotch: MyString
+  ankles: MyString
+  inseam: MyString
+  outseam: MyString

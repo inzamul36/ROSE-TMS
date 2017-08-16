@@ -1,0 +1,175 @@
+
+                <% content_for :title, "Print Order" %>
+
+
+                <!-- Page Header -->
+                <!-- You can use the .hidden-print class to hide an element in printing -->
+                <div class="content bg-gray-lighter hidden-print">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Invoice <small>Print Order Invoice.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Generic</li>
+                                <li><a class="link-effect" href="">Invoice</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content content-boxed">
+                    <!-- Invoice -->
+                    <div class="block">
+                        <div class="block-header">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+                                </li>
+                                <li>
+                                    <!-- Print Page functionality is initialized in App() -> uiHelperPrint() -->
+                                    <button type="button" onclick="App.initHelper('print-page');"><i class="si si-printer"></i> Print Invoice</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block-content block-content-narrow">
+                            <!-- Company Info -->
+                            <div class="row">
+                                <!-- Company Info -->
+                                <div class="col-xs-6 col-sm-4 col-lg-3">
+                                    <p class="h2 font-w400 push-5">ROSE TMS</p>
+                                    <address>
+                                        Gulshan,<br>
+                                        Dhaka-1212<br>
+                                        <i class="si si-call-end"></i> (000) 000-0000
+                                    </address>
+                                </div>  
+                                <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-6 text-right">
+                                    <div class="h2 pull-right">
+                                        INVOICE 
+                                        <h5>#INV-<%= @order.id %></h5>
+                                    </div>
+                                </div> 
+                            </div>      
+                            <!-- Invoice Info -->                            
+                            <hr style="margin-top: 0px;">
+                            <div class="row items-push-2x">
+                                <!-- Company Info -->
+                                <div class="col-xs-6 col-sm-4 col-lg-3">
+                                    <p class="h5 push-5"><b>Customer Info</b></p>
+                                    <h5><%= @order.customer.customer_name %></h5>
+                                    <address>
+                                        <%= @order.customer.customer_address %><br>
+                                        <i class="si si-call-end"></i> <%= @order.customer.customer_phone %>
+                                    </address>
+                                </div>
+                                <!-- END Company Info -->
+
+                                <!-- Client Info -->
+                                <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-6 text-right">
+                                    <p class="h5 push-5"><b>Print Date</b><br> <%= DateTime.now.to_date %></p>
+                                    <p class="h5 push-5"><b>Delivery Date</b><br> <%= @order.delivery_date%></p>
+                                </div>
+                                <!-- END Client Info -->                                
+                            </div>
+                            <!-- END Invoice Info -->
+
+                            <!-- Table -->
+                            <div class="table-responsive push-50">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 50px;"></th>
+                                            <th>Product</th>
+                                            <th class="text-right" style="width: 120px;">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td>
+                                                <p class="font-w600 push-10"><%= @order.order_details %></p>
+                                                <div class="text-muted">
+                                                    <% if @order.measurement.neck != '0' %>
+                                                        <span class="font-w600">Neck :</span> <%= @order.measurement.neck %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.sleeve != '0' %>
+                                                        <span class="font-w600">Sleeve :</span> <%= @order.measurement.sleeve %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.bicep != '0' %>
+                                                        <span class="font-w600">Bicep :</span> <%= @order.measurement.bicep %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.wrist != '0' %>
+                                                        <span class="font-w600">Wrist :</span> <%= @order.measurement.wrist %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.length != '0' %>
+                                                        <span class="font-w600">Length :</span> <%= @order.measurement.length %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.shoulder != '0' %>
+                                                        <span class="font-w600">Shoulder :</span> <%= @order.measurement.shoulder %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.chest != '0' %>
+                                                        <span class="font-w600">Chest :</span> <%= @order.measurement.chest %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.waist != '0' %>
+                                                        <span class="font-w600">Waist :</span> <%= @order.measurement.waist %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.hips != '0' %>
+                                                        <span class="font-w600">Hips :</span> <%= @order.measurement.hips %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.thigh != '0' %>
+                                                        <span class="font-w600">Thigh :</span> <%= @order.measurement.thigh %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.crotch != '0' %>
+                                                        <span class="font-w600">Crotch :</span> <%= @order.measurement.crotch %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.ankles != '0' %>
+                                                        <span class="font-w600">Ankles :</span> <%= @order.measurement.ankles %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.inseam != '0' %>
+                                                        <span class="font-w600">Inseam :</span> <%= @order.measurement.inseam %>,
+                                                    <% end %>
+                                                    <% if @order.measurement.outseam != '0' %>
+                                                        <span class="font-w600">Outseam :</span> <%= @order.measurement.outseam %>,
+                                                    <% end %> 
+                                                    <% if @order.measurement.other_measurements != '0' %>
+                                                         <%= @order.measurement.other_measurements %>
+                                                    <% end %>     
+                                                </div>
+                                            </td>
+                                            <td class="text-right">$ <%= @order.order_amount %></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="font-w600 text-right">Vat Rate</td>
+                                            <td class="text-right">0%</td>
+                                        </tr>                                        
+                                        <tr>
+                                            <td colspan="2" class="font-w600 text-right">Subtotal</td>
+                                            <td class="text-right">$ <%= @order.order_amount %></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="font-w600 text-right">Paid</td>
+                                            <td class="text-right">$ <%= @order.order_paid %></td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td colspan="2" class="font-w700 text-uppercase text-right">Total Due</td>
+                                            <td class="font-w700 text-right">$ <%= @order.order_amount - @order.order_paid %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END Table -->
+
+                            <!-- Footer -->
+                            <hr class="hidden-print">
+                            <p class="text-muted text-center"><small>Thank you very much for doing business with us. We look forward to working with you again!</small></p>
+                            <!-- END Footer -->
+                        </div>
+                    </div>
+                    <!-- END Invoice -->
+                </div>
+                <!-- END Page Content -->

@@ -1,0 +1,90 @@
+
+                <% content_for :title, "Profile" %>
+
+
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Edit User <small>Edit Existing User Data.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Dashbord</li>
+                                <li><a class="link-effect" href="">Edit User</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+	                        <div class="block">
+	                            <div class="block-header">
+	                                <ul class="block-options">
+	                                    <li>
+	                                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+	                                    </li>
+	                                    <li>
+	                                        <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+	                                    </li>
+	                                </ul>
+	                                <h3 class="block-title">User Form <small>Requierd</small></h3>
+	                            </div>
+	                            <div class="block-content block-content-narrow">  
+	                                <div class="row">
+	                                    <div class="col-md-6 col-md-offset-3">
+	                                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class=>'form-horizontal push-10-t' }) do |f| %>
+	                                        <%= devise_error_messages! %>                                        
+	                                            <div class="form-group">
+	                                                <label class="col-xs-12" for="example-password-input">User Email</label>
+	                                                <div class="col-sm-12">                    
+	                                                    <%= f.email_field :email, autofocus: true, :class=>'form-control', :type=>"email", :placeholder=>"Enter User Email", :required=>"" %>
+	                                                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+	                                                        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+	                                                    <% end %>
+	                                                </div>
+	                                            </div>                                           
+	                                            <div class="form-group">
+	                                                <label class="col-xs-12" for="example-password-input">New Password</label>
+	                                                <div class="col-sm-12">
+	                                                    <%= f.password_field :password, autocomplete: "off", :class=>'form-control', :placeholder=>"Enter New Password", :required=>"" %>
+	                                                    <% if @minimum_password_length %>
+	                                                        <br />
+	                                                        <em class="pull-right"><%= @minimum_password_length %> characters minimum</em>
+	                                                    <% end %>
+	                                                </div>
+	                                            </div>             
+	                                            <div class="form-group">
+	                                                <label class="col-xs-12" for="example-password-input">Confirm Password</label>
+	                                                <div class="col-sm-12">                                           
+	                                                    <%= f.password_field :password_confirmation, autocomplete: "off", :class=>'form-control', :placeholder=>"Enter Password Again", :required=>"" %>
+	                                                </div>
+	                                            </div>
+	                                            <div class="form-group">
+	                                                <label class="col-xs-12" for="example-password-input">Current Password</label>
+	                                                <div class="col-sm-12">                                         
+	                                                    <%= f.password_field :current_password, autocomplete: "off", :class=>'form-control', :placeholder=>"Enter Current Password", :required=>"" %>
+	                                                    
+	                                                    <br>
+	                                                    <em class="pull-right">(we need your current password to confirm your changes)</em>
+	                                                </div>
+	                                            </div>
+	                                            <div class="form-group">
+	                                                <div class="col-sm-12">
+	                                                    <%= f.submit :class=>'btn btn-sm btn-primary', :value=>'submit' %>
+	                                                </div>
+	                                            </div>                                               
+	                                        <% end %>  
+	                                    </div>                                    
+	                                </div> 
+	                            </div> 
+	                        </div>
+	                    </div>    
+                    </div>        
+                </div>

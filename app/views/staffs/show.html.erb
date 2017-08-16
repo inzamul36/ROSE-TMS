@@ -1,0 +1,78 @@
+			
+                <% content_for :title, "Staff Details" %>
+
+
+                <div class="content content-boxed">
+                    <div class="block">
+                        <div class="bg-image" style="background-image: url('<%= asset_path('dashboard.jpg') %>')">
+                            <div class="block-content bg-primary-dark-op text-center overflow-hidden">
+                                <div class="push-30-t push animated fadeInDown">
+                                    <%= image_tag "user.png", :class=>'img-avatar img-avatar96 img-avatar-thumb' %>
+                                </div>
+                                <div class="push-30 animated fadeInUp">
+                                    <h2 class="h4 font-w600 text-white push-5"><%= @staff.staff_name %></h2>
+                                    <h3 class="h5 text-gray"><%= @staff.staff_address %></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-content text-center">
+                            <div class="row items-push text-uppercase">
+                                <div class="col-md-4">
+                                    <div class="font-w700 text-gray-darker animated fadeIn">Phone</div>
+                                    <a class="h2 font-w300 text-primary animated flipInX"><%= @staff.staff_phone %></a>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="font-w700 text-gray-darker animated fadeIn">Email</div>
+                                    <a class="h2 font-w300 text-primary animated flipInX"><%= @staff.staff_email %></a>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="font-w700 text-gray-darker animated fadeIn">Sex</div>
+                                    <a class="h2 font-w300 text-primary animated flipInX"><%= @staff.staff_sex %></a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+
+                <!-- Page Content -->
+                <div class="content">                    
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-header">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                                </li>
+                            </ul>
+                             <h3 class="block-title">Order <small>Records</small></h3>
+                        </div>
+                        <div class="block-content table-responsive">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-striped js-dataTable-full-pagination">
+                                <thead>
+                                    <tr>
+                                        <th>Salary Date</th>
+                                        <th>Salary Amount</th>
+                                        <th>Salary Month</th>
+                                        <th>Salary Paid</th>
+                                    </tr>
+                                </thead> 
+                                <tbody>
+                                    <% @staff_salary.each do |salary|  %>
+                                        <tr>
+                                            <td><%= salary.salary_date %></td>
+                                            <td><%= salary.staff.staff_salary %></td>
+                                            <td><%= salary.salary_month %></td>
+                                            <td><%= salary.salary_paid %></td>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+                </div>
+                <!-- END Page Content -->

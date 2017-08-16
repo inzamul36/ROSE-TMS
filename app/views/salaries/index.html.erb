@@ -1,0 +1,77 @@
+
+                <% content_for :title, "Salaries" %>
+
+
+  				<!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Salary <small>All Salaries Data.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Dashbord</li>
+                                <li><a class="link-effect" href="">Salary</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-header">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Salary <small>Records</small></h3>
+                        </div>
+                        <div class="block-content table-responsive">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-striped js-dataTable-full-pagination">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Staff Name</th>
+									    <th>Staff Phone</th>
+									    <th>Salary Month</th>
+									    <th>Staff Salary</th>
+									    <th>Salary Paid</th>
+									    <th>Paid Date</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead> 
+                                <tbody>
+                                  <% @salaries.each do |salary|  %>
+                                    <tr>
+                                        <td>W-<%= salary.id %></td>
+                                        <td><%= salary.staff.staff_name %></td>
+								        <td><%= salary.staff.staff_phone %></td>
+								        <td><%= salary.salary_month %></td>
+								        <td><%= salary.staff.staff_salary %></td>
+								        <td><%= salary.salary_paid %></td>
+								        <td><%= salary.salary_date %></td> 
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <%= link_to salary_path(salary.id), :class=>'btn btn-xs btn-default' do %>
+                                                    <i class="fa fa-print"></i>
+                                                <% end %>
+                                            </div>
+                                        </td>          
+                                    </tr>
+                                  <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Content -->

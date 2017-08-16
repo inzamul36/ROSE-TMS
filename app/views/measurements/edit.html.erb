@@ -1,0 +1,184 @@
+				
+				<% content_for :title, "Add Measurement" %>
+
+
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Add Measurement <small>Add Measurement Data.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Dashbord</li>
+                                <li><a class="link-effect" href="">Add Order</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="block">
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Measurement Form <small>Measurement by Inch</small></h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <%= form_for @measurement, :html=>{:class=>'form-horizontal push-10-t'} do|f| %>
+                                            	<p class="title text-primary font-w600">Top Body :</p>
+                                                <div class="row">                                                
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Neck</label>
+                                                            <div class="col-sm-12">                                           
+                                                                <%= f.text_field :neck, :class=>'form-control', :placeholder=>"Enter Neck", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Sleeve</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :sleeve, :class=>'form-control', :placeholder=>"Enter Sleeve", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Bicep</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :bicep, :class=>'form-control', :placeholder=>"Enter Bicep", :required=>''  %>                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Wrist</label>
+                                                            <div class="col-sm-12">                                           
+                                                                <%= f.text_field :wrist, :class=>'form-control', :placeholder=>"Enter Wrist", :required=>''  %>                                                       
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Length</label>
+                                                            <div class="col-sm-12">                                           
+                                                                <%= f.text_field :length, :class=>'form-control', :placeholder=>"Enter Length", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Shoulder</label>
+                                                            <div class="col-sm-12">                                           
+                                                                <%= f.text_field :shoulder, :class=>'form-control', :placeholder=>"Enter Shoulder", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Chest</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :chest, :class=>'form-control', :placeholder=>"Enter Chest", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>                                            
+                                                </div>
+                                                <p class="title text-primary font-w600">Middle Body :</p>
+                                                <div class="row">                                                
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Waist</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :waist, :class=>'form-control', :placeholder=>"Enter Waist", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Hips</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :hips, :class=>'form-control', :placeholder=>"Enter Hips ", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                </div> 
+                                                <p class="title text-primary font-w600">Bottom Body :</p>    
+                                                <div class="row">
+                                                	<div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Thigh</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :thigh, :class=>'form-control', :placeholder=>"Enter Thigh", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Crotch</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :crotch, :class=>'form-control', :placeholder=>"Enter Crotch ", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Ankles</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :ankles, :class=>'form-control', :placeholder=>"Enter Ankles", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Inseam</label>
+                                                            <div class="col-sm-12">                                          
+                                                                <%= f.text_field :inseam, :class=>'form-control', :placeholder=>"Enter Inseam ", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="col-md-6">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Outseam</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_field :outseam, :class=>'form-control', :placeholder=>"Enter Outseam ", :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">                                             
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Other</label>
+                                                            <div class="col-sm-12">                                            
+                                                                <%= f.text_area:other_measurements, :class=>'form-control', :placeholder=>"Enter Other Measurements ",:rows=>'1', :required=>''  %> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>                                     
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <%= f.submit :class=>'btn btn-sm btn-primary', :value=>'submit' %>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        </div>    
+                                    </div>                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>

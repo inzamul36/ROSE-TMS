@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  staff: one
+  delivery_date: 2017-03-21
+  amount: 1
+  paid: 1
+  order_status: MyString
+  order_delete: 1
+
+two:
+  customer: two
+  staff: two
+  delivery_date: 2017-03-21
+  amount: 1
+  paid: 1
+  order_status: MyString
+  order_delete: 1

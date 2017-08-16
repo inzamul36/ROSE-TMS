@@ -1,0 +1,167 @@
+
+                <% content_for :title, "Print Order" %>
+
+
+                <!-- Page Header -->
+                <!-- You can use the .hidden-print class to hide an element in printing -->
+                <div class="content bg-gray-lighter hidden-print">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Invoice <small>Print Order Invoice.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Generic</li>
+                                <li><a class="link-effect" href="">Invoice</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content content-boxed">
+                    <!-- Invoice -->
+                    <div class="block">
+                        <div class="block-header">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+                                </li>
+                                <li>
+                                    <!-- Print Page functionality is initialized in App() -> uiHelperPrint() -->
+                                    <button type="button" onclick="App.initHelper('print-page');"><i class="si si-printer"></i> Print Invoice</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block-content block-content-narrow">
+                            <!-- Company Info -->
+                            <div class="row">
+                                <!-- Company Info -->
+                                <div class="col-xs-6 col-sm-4 col-lg-3">
+                                    <p class="h2 font-w400 push-5">ROSE TMS</p>
+                                    <address>
+                                        Gulshan,<br>
+                                        Dhaka-1212<br>
+                                        <i class="si si-call-end"></i> (000) 000-0000
+                                    </address>
+                                </div>  
+                                <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-6 text-right">
+                                    <div class="h2 pull-right">
+                                        AUTHOR COPY 
+                                        <h5>#W-<%= @salary.id %></h5>
+                                    </div>
+                                </div> 
+                            </div>      
+                            <!-- Invoice Info -->                            
+                            <hr style="margin-top: 0px;">
+                            <div class="row items-push-2x">
+                                <!-- Company Info -->
+                                <div class="col-xs-6">
+                                    <p class="h5 push-5"><b>Customer Info</b></p>
+                                    <h5><%= @salary.staff.staff_name %></h5>
+                                    <address>
+                                        <%= @salary.staff.staff_address %><br>
+                                        <i class="si si-call-end"></i> <%= @salary.staff.staff_phone %>
+                                    </address>
+                                </div>
+                                <!-- END Company Info -->
+
+                                <div class="col-xs-2">
+                                    <p class="h5 push-5"><b>Salary Month</b><br>
+                                    <%= @salary.salary_month %>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <p class="h5 push-5"><b>Payment Date</b><br> <%= @salary.salary_date %></p>
+                                </div>
+
+                                <div class="col-xs-2 text-right">
+                                    <p class="h5 push-5"><b>Paid Amount</b><br>
+                                    $ <%= @salary.salary_paid %>
+                                </div>                                
+                            </div>
+                            <!-- END Invoice Info -->
+
+                            <div class="row">
+                                <div class="col-xs-2 text-center">
+                                    __________________
+                                    <br> Author Sign
+                                </div>
+                                <div class="col-xs-2 text-center col-xs-offset-8">
+                                    __________________
+                                    <br> Staff Sign
+                                </div>                                
+                            </div>
+
+                            <hr style="margin-top: 50px; margin-bottom: 50px;">
+
+                            <!-- Company Info -->
+                            <div class="row">
+                                <!-- Company Info -->
+                                <div class="col-xs-6 col-sm-4 col-lg-3">
+                                    <p class="h2 font-w400 push-5">ROSE TMS</p>
+                                    <address>
+                                        Gulshan,<br>
+                                        Dhaka-1212<br>
+                                        <i class="si si-call-end"></i> (000) 000-0000
+                                    </address>
+                                </div>  
+                                <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-6 text-right">
+                                    <div class="h2 pull-right">
+                                        STAFF COPY 
+                                        <h5>#W-<%= @salary.id %></h5>
+                                    </div>
+                                </div> 
+                            </div>      
+                            <!-- Invoice Info -->                            
+                            <hr style="margin-top: 0px;">
+                            <div class="row items-push-2x">
+                                <!-- Company Info -->
+                                <div class="col-xs-6">
+                                    <p class="h5 push-5"><b>Customer Info</b></p>
+                                    <h5><%= @salary.staff.staff_name %></h5>
+                                    <address>
+                                        <%= @salary.staff.staff_address %><br>
+                                        <i class="si si-call-end"></i> <%= @salary.staff.staff_phone %>
+                                    </address>
+                                </div>
+                                <!-- END Company Info -->
+
+                                <div class="col-xs-2">
+                                    <p class="h5 push-5"><b>Salary Month</b><br>
+                                    <%= @salary.salary_month %>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <p class="h5 push-5"><b>Payment Date</b><br> <%= @salary.salary_date %></p>
+                                </div>
+
+                                <div class="col-xs-2 text-right">
+                                    <p class="h5 push-5"><b>Paid Amount</b><br>
+                                    $ <%= @salary.salary_paid %>
+                                </div>                             
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-2 text-center">
+                                    __________________
+                                    <br> Author Sign
+                                </div>
+                                <div class="col-xs-2 text-center col-xs-offset-8">
+                                    __________________
+                                    <br> Staff Sign
+                                </div>                                
+                            </div>
+
+                            <!-- Footer -->
+                            <hr class="hidden-print">
+                            <p class="text-muted text-center hidden-print"><small>Thank you very much for doing business with us. We look forward to working with you again!</small></p>
+                            <!-- END Footer -->
+                        </div>
+                    </div>
+                    <!-- END Invoice -->
+                </div>
+                <!-- END Page Content -->

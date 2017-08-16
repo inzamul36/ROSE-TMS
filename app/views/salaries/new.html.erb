@@ -1,0 +1,81 @@
+
+                <% content_for :title, "Add Salary" %>
+
+
+				<!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading animated zoomIn">
+                                Add Salary <small>Add New Salary Data.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Dashbord</li>
+                                <li><a class="link-effect" href="">Add Salary</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                	<div class="row">
+                        <div class="col-md-12">
+                            <div class="block">
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Salary Form <small>Requierd</small></h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <%= form_for @salary, :html=>{:class=>'form-horizontal push-10-t'} do|f| %>			
+                                                <div class="form-group">
+                                                    <label class="col-xs-12" for="example-password-input">Staff Name</label>
+                                                    <div class="col-sm-12"> 
+                                                        <% options = options_from_collection_for_select(@staff, 'id', 'staff_name') %>
+                                                        <%= f.select :staff_id, options, {:include_blank => false}, {:class=>'form-control select_list', :style=>'width: 100%'}  %>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Month</label>
+                                                            <div class="col-sm-12">
+                                                                <%= f.select :salary_month, options_for_select([ 'January', 'February','March','April','May','June','July','August','September', 'October', 'November' , 'December']), {:include_blank => false}, {:class=>'form-control'} %>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label class="col-xs-12" for="example-password-input">Salary Paid</label>
+                                                            <div class="col-sm-12">                                          
+                                                                <%= f.text_field :salary_paid, :class=>'form-control', :placeholder=>"Enter Paid Amount", :type=>'number', :required=>''  %>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <%= f.hidden_field :salary_date, :value=> Time.now %>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <%= f.submit :class=>'btn btn-sm btn-primary', :value=>'submit' %>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        </div>
+                                    </div>    
+                                </div>
+    		                </div>
+                        </div>    
+		            </div>        
+                </div>   

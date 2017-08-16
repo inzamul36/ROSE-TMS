@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff: one
+  salary_date: 2017-03-21
+  salary_month: MyString
+  paid: 1
+
+two:
+  staff: two
+  salary_date: 2017-03-21
+  salary_month: MyString
+  paid: 1

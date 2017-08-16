@@ -1,0 +1,89 @@
+
+                <% content_for :title, "Customer Details" %>
+
+
+                <div class="content content-boxed">
+                    <div class="block">
+                        <div class="bg-image" style="background-image: url('<%= asset_path('dashboard_3.jpg') %>')">
+                            <div class="block-content bg-primary-dark-op text-center overflow-hidden">
+                                <div class="push-30-t push animated fadeInDown">
+                                    <%= image_tag "user.png", :class=>"img-avatar img-avatar96 img-avatar-thumb" %>
+                                </div>
+                                <div class="push-30 animated fadeInUp">
+                                    <h2 class="h4 font-w600 text-white push-5"><%= @customer.customer_name %></h2>
+                                    <h3 class="h5 text-gray"><%= @customer.customer_address %></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-content text-center">
+                            <div class="row items-push text-uppercase">                                 
+                                <div class="col-md-3">
+                                    <div class="font-w700 text-gray-darker animated fadeIn">Total Order</div>
+                                    <a class="h2 font-w300 text-primary animated flipInX"><%= @customer_order_total %></a>
+                                </div>                               
+                                <div class="col-md-3">
+                                    <div class="font-w700 text-gray-darker animated fadeIn">Total Amount</div>
+                                    <a class="h2 font-w300 text-primary animated flipInX"><%= @customer_order_amount %></a>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="font-w700 text-gray-darker animated fadeIn">Total Paid</div>
+                                    <a class="h2 font-w300 text-primary animated flipInX"><%= @customer_order_paid %></a>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="font-w700 text-gray-darker animated fadeIn">Total Due</div>
+                                    <a class="h2 font-w300 text-primary animated flipInX"><%= @customer_order_amount - @customer_order_paid %></a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- Page Content -->
+                <div class="content">                    
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-header">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Order <small>Records</small></h3>
+                        </div>
+                        <div class="block-content table-responsive">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-striped js-dataTable-full-pagination">
+                                <thead>
+                                    <tr>
+                                        <th>Delivery Date</th>
+                                        <th>Amount</th>
+                                        <th>Paid</th>
+                                        <th>Order Status</th>
+                                    </tr>
+                                </thead> 
+                                <tbody>
+                                    <% @customer_order.each do |order|  %>
+                                        <tr>
+                                            <td><%= order.delivery_date %></td>
+                                            <td><%= order.order_amount %></td>
+                                            <td><%= order.order_paid %></td>
+                                            <% if order.order_status == 'Confirm'  %>
+                                                <td class="text-center"><span class="label label-default"> <%= order.order_status %></span></td>
+                                            <% elsif order.order_status == 'Processing' %>
+                                                <td class="text-center"><span class="label label-warning"> <%= order.order_status %></span></td>
+                                            <% elsif order.order_status == 'Ready' %>
+                                                <td class="text-center"><span class="label label-success"> <%= order.order_status %></span></td>
+                                            <% elsif order.order_status == 'Delivered' %>
+                                                <td class="text-center"><span class="label label-primary"> <%= order.order_status %></span></td>    
+                                            <% end %>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+                </div>
+                <!-- END Page Content -->
