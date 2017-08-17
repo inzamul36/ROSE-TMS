@@ -19,7 +19,8 @@ rake db:migrate
 ```
 - Sign Up by replacing "sign_in" to "sign_up" from address bar and add all informations.
 
-## About this application
+
+## Live Demo
 
 ##### Live Link: www.rose-tms.herokuapp.com
 
