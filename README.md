@@ -22,7 +22,7 @@ rake db:migrate
 
 ## Live Demo
 
-##### Live Link: www.rose-tms.herokuapp.com
+##### Live Link: http://rose-tms.herokuapp.com
 
 # Contact me 
 Facebook: facebook.com/inzamul36 <br>
